@@ -20,6 +20,19 @@ maybe fix this with home version on PC
 
 # 🔧 Build Process
 
+## Prerequisites
+
+This project assumes that you've already completed "cloud-project-two" linked in the "Project Overview" section.
+
+For the sake of conserving resources, you'll be reusing the VPC and subnets from that project. Before starting the 
+"Create Security Groups" section be certain that you have:
+
+- A VPC
+- A public subnet
+- A private subnet
+- Internet Gateway
+- Route Table?
+
 ## Create Security Groups
 
 In your WSL Ubuntu bash shell, type:
@@ -164,6 +177,7 @@ print("Inbound rules added.")
 
 ## Create the EC2 instances
 
+Now that we've got the appropriate security groups made
 
 
 
