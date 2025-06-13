@@ -33,6 +33,10 @@ For the sake of conserving resources, you'll be reusing the VPC and subnets from
 - Internet Gateway
 - Route Table?
 
+// The internet gateway has to be attached to something, rather the something has to have an internet 
+gateway attached, I believe. I'm pretty sure this gets attached to the VPC to allow internet traffic 
+to happen. I need to clarify this.
+
 ## Create Security Groups
 
 In your WSL Ubuntu bash shell, type:
@@ -177,7 +181,9 @@ print("Inbound rules added.")
 
 ## Create the EC2 instances
 
-Now that we've got the appropriate security groups made
+Now that we've created our security groups, let's generate the instances for our web delivery and database.
+
+### Creating the Web Server
 
 
 
