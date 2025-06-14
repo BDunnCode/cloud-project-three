@@ -4,13 +4,15 @@ Fix this w/ copy paste from version on home pc
 
 # 🛠️ Tools Used / Tech Stack
 
-Web Server | Python + Flask	| Handles form + output
-Frontend |	HTML + CSS |	Input field, submit button, table
-Backend	| Python	Flask | handles DB + rendering
-Database | 	MySQL on EC2 |	Stores guestbook entries
-Infra	| AWS EC2 (2x)	| Web + DB tiers, SSH into both
-Deployment |	Manual setup	| SSH + sudo apt install for setup
-Security |	Security groups |	Only allow web-to-DB traffic on port 3306
+| Layer         | Tech Stack       | Purpose                                      |
+|---------------|------------------|----------------------------------------------|
+| Web Server    | Python + Flask   | Handles form input and HTML output           |
+| Frontend      | HTML + CSS       | Builds the UI: input, button, output table   |
+| Backend       | Flask (Python)   | Logic + DB interactions                      |
+| Database      | MySQL on EC2     | Stores guestbook entries                     |
+| Infrastructure| AWS EC2 (2x)     | Web + DB tiers                               |
+| Deployment    | Manual (SSH)     | SSH + install packages via CLI               |
+| Security      | Security Groups  | HTTP/SSH for web, 3306 from web-only         |
 
 # 📜 Network Diagrams
 
