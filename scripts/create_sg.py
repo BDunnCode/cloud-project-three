@@ -3,7 +3,7 @@ import boto3
 # CONFIGURE THIS SECTION
 SECURITY_GROUP_NAME = "cp3-web-sg"
 DESCRIPTION = "Security group for web tier (HTTP + SSH)"
-VPC_ID = "vpc-040fca4e38b58d593"  # <-- Replace with your actual VPC ID
+VPC_ID = "vpc-abcdefgh1234567"  # <-- Replace with your actual VPC ID
 REGION = "us-east-2"
 
 # Initialize EC2 client
