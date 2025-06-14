@@ -187,7 +187,61 @@ Now that we've created our security groups, let's generate the instances for our
 
 ### Creating the Web Server
 
+In the follow scripts you'll have to fill in your own security group, subnet, and key pair information. 
+There will be an AMI id included, but if you're looking for a newer one, you can use the get_ami.py script
+found in the scripts folder in the github repository.
 
+Now, type
+
+```bash
+nano create_web_ec2.py
+```
+
+and paste in the following script:
+
+```bash
+#!/usr/bin/env python3
+
+import boto3
+
+# Replace these with real, working values from your setup
+AMI_ID = 'ami-0ddac208607ae06a0'  # Amazon Linux 2
+INSTANCE_TYPE = 't2.micro'
+KEY_NAME = 'my-key-pair'
+SECURITY_GROUP_IDS = ['sg-abcdefgh1234567']
+SUBNET_ID = 'subnet-abcdefgh1234567'
+
+def launch_instance():
+    ec2 = boto3.client('ec2')
+
+    response = ec2.run_instances(
+        ImageId=AMI_ID,
+        InstanceType=INSTANCE_TYPE,
+        KeyName=KEY_NAME,
+        MaxCount=1,
+        MinCount=1,
+        SecurityGroupIds=SECURITY_GROUP_IDS,
+        SubnetId=SUBNET_ID,
+        TagSpecifications=[
+            {
+                'ResourceType': 'instance',
+                'Tags': [{'Key': 'Name', 'Value': 'Python-Launched-Instance'}]
+            }
+        ]
+    )
+
+    instance_id = response['Instances'][0]['InstanceId']
+    print(f"Launched instance with ID: {instance_id}")
+
+if __name__ == "__main__":
+    launch_instance()
+```
+You can adjust the name in the AWS console, or id the tagspecifications section in the script if you'd like.
+My instance is called cp3-guestbook-web. Now, we'll move towards creating the database server.
+
+### Creating the Database Server
+
+Creating the database server is effectively identical to creating the web server, except for the security group and subnets that will be attached. We want the web server on a public subnet
 
 # 🤔 Reflections
 
