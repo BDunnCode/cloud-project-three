@@ -30,10 +30,11 @@ For the sake of conserving resources, you'll be reusing the VPC and subnets from
 "Create Security Groups" section be certain that you have:
 
 - A VPC
-- A public subnet
+- A public subnet with:
+    - Automatic public IPv4 address assignment
 - A private subnet
 - Internet Gateway
-- Route Table?
+- Route Table
 
 // The internet gateway has to be attached to something, rather the something has to have an internet 
 gateway attached, I believe. I'm pretty sure this gets attached to the VPC to allow internet traffic 
@@ -126,7 +127,7 @@ import boto3
 # CONFIGURE THIS SECTION
 SECURITY_GROUP_NAME = "cp3-db-sg"
 DESCRIPTION = "Security group for db tier (MySQL + SSH)"
-VPC_ID = "vpc-040fca4e38b58d593"  # Replace with your actual VPC ID
+VPC_ID = "vpc-abcdefgh1234567"  # Replace with your actual VPC ID
 REGION = "us-east-2"
 WEB_SECURITY_GROUP_ID = "sg-xxxxxxxxxxxxxxxxx"  # Replace with actual Web SG ID
 
@@ -187,7 +188,7 @@ Now that we've created our security groups, let's generate the instances for our
 
 ### Creating the Web Server
 
-In the follow scripts you'll have to fill in your own security group, subnet, and key pair information. 
+In the following scripts you'll have to fill in your own security group, subnet, and key pair information. 
 There will be an AMI id included, but if you're looking for a newer one, you can use the get_ami.py script
 found in the scripts folder in the github repository.
 
@@ -241,7 +242,67 @@ My instance is called cp3-guestbook-web. Now, we'll move towards creating the da
 
 ### Creating the Database Server
 
-Creating the database server is effectively identical to creating the web server, except for the security group and subnets that will be attached. We want the web server on a public subnet
+Creating the database server is nearly identical to creating the web server, except for the security group and subnets that will be attached. We want the web server on a public subnet and the database on a private one. 
+
+In your Ubuntu bash shell: 
+
+Type:
+
+```bash
+nano create_db_ec2.py
+```
+
+now paste in the following:
+
+```bash
+
+#!/usr/bin/env python3
+
+import boto3
+
+# Replace these with real, working values from your setup
+AMI_ID = 'ami-0ddac208607ae06a0'  # Amazon Linux 2
+INSTANCE_TYPE = 't2.micro'
+KEY_NAME = 'my-key-pair'
+SECURITY_GROUP_IDS = ['sg-abcdefgh1234567']
+SUBNET_ID = 'subnet-abcdefgh1234567'
+
+def launch_instance():
+    ec2 = boto3.client('ec2')
+
+    response = ec2.run_instances(
+        ImageId=AMI_ID,
+        InstanceType=INSTANCE_TYPE,
+        KeyName=KEY_NAME,
+        MaxCount=1,
+        MinCount=1,
+        SecurityGroupIds=SECURITY_GROUP_IDS,
+        SubnetId=SUBNET_ID,
+        TagSpecifications=[
+            {
+                'ResourceType': 'instance',
+                'Tags': [{'Key': 'Name', 'Value': 'Python-Launched-Instance'}]
+            }
+        ]
+    )
+
+    instance_id = response['Instances'][0]['InstanceId']
+    print(f"Launched instance with ID: {instance_id}")
+
+if __name__ == "__main__":
+    launch_instance()
+
+```
+
+now run the script in the terminal by typing:
+
+```bash
+python3 create_db_ec2.py
+```
+
+## Configuring the Web Server
+
+
 
 # 🤔 Reflections
 
