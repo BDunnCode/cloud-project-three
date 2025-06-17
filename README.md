@@ -300,8 +300,13 @@ now run the script in the terminal by typing:
 python3 create_db_ec2.py
 ```
 
-## Configuring the Web Server
+## Configuring the Database Server
 
+Doing this requires some tricks because, for security reasons, our database server will not have a public 
+IP address. To access it, we'll be connecting to our web ec2, and then jumping from there to connect to
+the db ec2.
+
+To do this, we'll first use ssh to connect to our web ec2.
 
 
 # 🤔 Reflections
