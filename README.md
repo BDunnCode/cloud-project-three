@@ -306,8 +306,44 @@ Doing this requires some tricks because, for security reasons, our database serv
 IP address. To access it, we'll be connecting to our web ec2, and then jumping from there to connect to
 the db ec2.
 
-To do this, we'll first use ssh to connect to our web ec2.
+To do this, we'll first use ssh to connect to our web ec2. Before connecting to the instance, open your ssh private key ( a file ending in .pem), and copy the contents of that file to a notepad document. 
 
+You're going to need to copy this to the ssh key section of the web instance to allow you to jump into the database instance. For security sake, probably don't save the notepad doucment. 
+
+If this key is compromised, it can potentially be used to access your EC2 by outside parties, which is is definitely undesirable. 
+
+Assuming that your key pairs and security groups are appropriately configured, the following command will get you into the web EC2:
+
+```bash
+
+ssh -i /path/to/ssh-key-file ec2-user@WEB_EC2_IP_ADDRESS
+
+```
+
+There are a few ways this can go wrong so be mindful. The most obvious ones will be:
+
+- SSH not being allowed on your web instance's security group
+- Not appropriately typing the ssh key path
+
+Once you're into the database EC2 instance, create a .pem using nano. For the sake of simplicity, I recommend using the same key pair 
+and file names for both instances.
+
+```bash
+nano my-key-pair.pem
+```
+
+Paste in the contents that you haved saved to the notepad document to the side.
+
+Assuming all of these steps worked, and you have appropriately configured the inbound rules of your database's security group, you are
+now ready to use SSH to jump into the database instance. 
+
+Use the following command:
+
+```bash
+ssh -i path/to/ssh-key ec2-user@db-instance-private-ip-address
+```
+
+If everyone went as expected you should now be connected to the database instance and ready to set up mySQL.
 
 # 🤔 Reflections
 
