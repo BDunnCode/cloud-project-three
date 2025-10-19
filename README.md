@@ -1,8 +1,8 @@
-# 📦 Project Overview
+# 🌄 Project Overview
 
 Fix this w/ copy paste from version on home pc
 
-# 🛠️ Tools Used / Tech Stack
+# ⚙️ Tools & Technologies
 
 | Layer         | Tech Stack       | Purpose                                      |
 |---------------|------------------|----------------------------------------------|
@@ -14,13 +14,13 @@ Fix this w/ copy paste from version on home pc
 | Deployment    | Manual (SSH)     | SSH + install packages via CLI               |
 | Security      | Security Groups  | HTTP/SSH for web, 3306 from web-only         |
 
-# 📜 Network Diagrams
+# 📜 Diagrams
 
-# ✍️ Design Rationale and 💰 Cost Savings
+# 🏗️ Design Rationale
 
 maybe fix this with home version on PC
 
-# 🔧 Build Process
+# 🔧 Setup
 
 ## Prerequisites
 
@@ -345,6 +345,19 @@ ssh -i path/to/ssh-key ec2-user@db-instance-private-ip-address
 
 If everyone went as expected you should now be connected to the database instance and ready to set up mySQL.
 
+# 🎥 Demo
+
+!!! PENDING !!!
+
 # 🤔 Reflections
+
+
+
+# 🌦️ Future Feature Forecasting
+
+
+
+# 🧭 Changes in Approach
+
 
 

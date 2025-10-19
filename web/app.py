@@ -5,7 +5,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Update these values with your actual DB instance info
 DB_CONFIG = {
     'host': 'YOUR_DB_PRIVATE_IP',
     'user': 'ec2user',
