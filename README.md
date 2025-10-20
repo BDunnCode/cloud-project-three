@@ -1,5 +1,18 @@
 # 🌄 Project Overview
 
+This project builds off of a built-from-scratch VPC project (cloud-project-one) using AWS, and a project that uses boto3 and the python programming language to interact with AWS (cloud-project-two). They can be found below and used for reference when:
+
+- Configuring WSL (Windows Subsystem for Linux)
+- Configuring the AWS CLI
+- Configuring Python
+- Configuring boto3
+- Configuring the Virtual Environment used when working with boto3
+- Creating VPC components using the AWS Console and CLI
+
+![Project One Github](https://github.com/BDunnCode/cloud-project-one)
+
+![Project Two Github](https://github.com/BDunnCode/cloud-project-two)
+
 Fix this w/ copy paste from version on home pc
 
 # ⚙️ Tools & Technologies
@@ -16,9 +29,11 @@ Fix this w/ copy paste from version on home pc
 
 # 📜 Diagrams
 
+!!! PENDING !!!
+
 # 🏗️ Design Rationale
 
-maybe fix this with home version on PC
+!!! PENDING !!!
 
 # 🔧 Setup
 
@@ -351,13 +366,16 @@ If everyone went as expected you should now be connected to the database instanc
 
 # 🤔 Reflections
 
+!!! PENDING !!!
 
 
 # 🌦️ Future Feature Forecasting
 
+!!! PENDING !!!
 
 
 # 🧭 Changes in Approach
 
+!!! PENDING !!!
 
 
