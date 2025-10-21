@@ -29,11 +29,17 @@ Fix this w/ copy paste from version on home pc
 
 # 📜 Diagrams
 
-!!! PENDING !!!
+![Networking Diagram](cp3-networking-diagram.png)
+
 
 # 🏗️ Design Rationale
 
-!!! PENDING !!!
+This project emulates a simple professional networking environment. 
+
+It is a two-tier Guestbook sign-in application built on AWS VPC networking infrastructure with isolated hosts, subnets, and security groups being used
+for logical separation and security purposes.
+
+Database hosting utilizes mySQL on an EC2 instance, while web services and database interactions are handled by a Python framework called Flask.
 
 # 🔧 Setup
 
@@ -358,7 +364,7 @@ Use the following command:
 ssh -i path/to/ssh-key ec2-user@db-instance-private-ip-address
 ```
 
-If everyone went as expected you should now be connected to the database instance and ready to set up mySQL.
+If everything went as expected you should now be connected to the database instance and ready to set up mySQL.
 
 # 🎥 Demo
 
@@ -366,16 +372,30 @@ If everyone went as expected you should now be connected to the database instanc
 
 # 🤔 Reflections
 
-!!! PENDING !!!
+I returned to this project in an effort to create a more standardized workflow process and found that while I have a reasonably 
+good understanding of everything I'm doing, execution can still be choppy. 
 
+Some mild pain points:
+
+- Diagrams and documentation 
+
+- Technical processes, even when well understood can still have small execution errors that prompt troubleshooting. In the 
+case of crafting networks it seems that fishing out little errors is likely the norm. 
 
 # 🌦️ Future Feature Forecasting
 
-!!! PENDING !!!
+There are many features that could be added, but the first two would likely be moving to HTTPS and utilizing Network Address 
+Translation. 
 
+After that DDOS protection, but the app would have to be significantly more complex to before worrying about those, and this is 
+not primarily an exercise in frontend or backend app development. 
 
 # 🧭 Changes in Approach
 
-!!! PENDING !!!
+The value of standardizing from project-to-project in order to make iteration fast and simple has become very obvious.
+
+Returning to the project to finish leftover work makes it very glaring that you want to avoid leaving anything leftover whenever
+possible because it takes 5x-10x as long to remember what you were doing even if you understand the concepts and skills well. This
+means that I better knock out the video as I'm doing or immediately after projects even if I dread doing so. 
 
 

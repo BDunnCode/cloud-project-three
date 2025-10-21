@@ -3,12 +3,12 @@ import boto3
 # CONFIGURE THIS SECTION
 SECURITY_GROUP_NAME = "cp3-db-sg"
 DESCRIPTION = "Security group for db tier (MySQL + SSH)"
-VPC_ID = "vpc-abcdefgh1234567"  # Replace with your actual VPC ID
-REGION = "us-east-2"
-WEB_SECURITY_GROUP_ID = "sg-xxxxxxxxxxxxxxxxx"  # Replace with actual Web SG ID
+VPC_ID = "vpc-e78c449f72375e007"  # Replace with your actual VPC ID
+REGION = "us-east-1"
+WEB_SECURITY_GROUP_ID = "sg-xxxxxxxxxxxxxxxxc"  # Replace with actual Web SG ID
 
 # Initialize EC2 client
-ec2 = boto3.client('ec2', region_name=REGION)
+ec2 = boto3.client('ec2', endpoint_url='http://localhost:4566')
 
 # Create the security group
 response = ec2.create_security_group(

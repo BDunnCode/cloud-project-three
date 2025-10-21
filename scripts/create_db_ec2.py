@@ -3,11 +3,11 @@
 import boto3
 
 # Replace these with real, working values from your setup
-AMI_ID = 'ami-0ddac208607ae06a0'  # Amazon Linux 2
+AMI_ID = 'ami-0ddac208607ae06a0'  
 INSTANCE_TYPE = 't2.micro'
 KEY_NAME = 'my-key-pair'
 SECURITY_GROUP_IDS = ['sg-abcdefgh1234567']
-SUBNET_ID = 'subnet-abcdefgh1234567'
+SUBNET_ID = 'subnet-dc291c76688959ff3'
 
 def launch_instance():
     ec2 = boto3.client('ec2')

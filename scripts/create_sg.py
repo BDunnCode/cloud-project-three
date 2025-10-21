@@ -3,11 +3,11 @@ import boto3
 # CONFIGURE THIS SECTION
 SECURITY_GROUP_NAME = "cp3-web-sg"
 DESCRIPTION = "Security group for web tier (HTTP + SSH)"
-VPC_ID = "vpc-abcdefgh1234567"  # <-- Replace with your actual VPC ID
-REGION = "us-east-2"
+VPC_ID = "vpc-e78c449f72375e007"  # <-- Replace with your actual VPC ID
+REGION = "us-east-1"
 
 # Initialize EC2 client
-ec2 = boto3.client('ec2', region_name=REGION)
+ec2 = boto3.client('ec2', endpoint_url='http://localhost:4566')
 
 # Create the security group
 response = ec2.create_security_group(
@@ -20,6 +20,7 @@ response = ec2.create_security_group(
             'Tags': [
                 {'Key': 'Name', 'Value': SECURITY_GROUP_NAME},
                 {'Key': 'Project', 'Value': '2-tier-app'}
+            ]
         }
     ]
 )
